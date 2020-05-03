@@ -64,6 +64,9 @@ jobs:
       
     - name: Clone other packages
       run: |
+        cd package
+        mkdir openwrt-packages
+        cd openwrt-packages
         git clone https://github.com/Mrbai98/luci-theme-atmaterial.git openwrt/package/luci-theme-atmaterial
         git clone https://github.com/rufengsuixing/luci-app-adguardhome.git openwrt/package/luci-app-adguardhome && echo "#https://cdn.jsdelivr.net/gh/AdguardTeam/AdGuardHome/AdGuardHome_linux_${Arch}.tar.gz" > openwrt/package/luci-app-adguardhome/root/usr/share/AdGuardHome/links.txt
         git clone https://github.com/pymumu/smartdns.git openwrt/package/smartdns
@@ -71,7 +74,10 @@ jobs:
         git clone https://github.com/frainzy1477/luci-app-clash.git openwrt/package/luci-app-clash
         git clone https://github.com/project-openwrt/luci-app-koolproxyR.git openwrt/package/luci-app-koolproxyR
         git clone https://github.com/vernesong/OpenClash.git && mv OpenClash/luci-app-openclash openwrt/package/luci-app-openclash
-        git clone https://github.com/sean-liang/PHICOMM-N1-OpenWRT-Image-Builder.git
+        git clone https://github.com/destan19/OpenAppFilter.git
+        git clone https://github.com/fw876/helloworld.git
+          
+        df -h
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
