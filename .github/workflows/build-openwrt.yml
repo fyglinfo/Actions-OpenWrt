@@ -128,5 +128,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: NanoPi-R1_firmware
+        name: Nowifi-n1
         path: ${{ env.FIRMWARE }}
